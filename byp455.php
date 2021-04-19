@@ -31,7 +31,7 @@ $auth_users = array(
 
 //set application theme
 //options - 'light' and 'dark'
-$theme = 'dark';
+$theme = 'light';
 
 // Readonly users
 // e.g. array('users', 'guest', ...)
