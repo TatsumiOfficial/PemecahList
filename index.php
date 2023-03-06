@@ -1,6 +1,6 @@
 <script type="text/javascript">
   function openMultipleWindows() {
-    var urls = ["https://heartdns.com/chatgpt", "https://heartdns.com/simsimi", "https://heartdns.com/blog", "https://heartdns.com/blog/Cara-Install-Terminal-Ubuntu-di-Windows-10-dan-Windows-11.html"];
+    var urls = ["https://heartdns.com/blog/cara-mendeteksi-kerentanan-xss.html", "https://heartdns.com/blog/reverse-ip-lookup-osint-tools.html", "https://heartdns.com/blog/how-to-install-mongodb-on-linux.html", "https://heartdns.com/privacy-policy", "https://heartdns.com/disclaimer"];
     var params = 'width=' + screen.width;
     params += ', height=' + screen.height;
     params += ', top=1000, left=1200px ,scrollbars=no';
@@ -31,15 +31,19 @@
   });
 </script>
 <?php
-
+//header('Access-Control-Allow-Headers: *');
+//header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+//error_reporting(E_ALL);
+//ini_set('display_errors', 'On');
+ini_set('max_execution_time', 300);
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-
-
+define('LARAVEL_START', microtime(true));
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -50,10 +54,8 @@
 | into the script here so that we don't have to worry about manual
 | loading any of our classes later on. It feels great to relax.
 |
-*/
-
-require __DIR__.'/vendor/autoload.php';
-
+ */
+require __DIR__ . '/../vendor/autoload.php';
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
@@ -64,10 +66,8 @@ require __DIR__.'/vendor/autoload.php';
 | will load up this application so that we can run it and send
 | the responses back to the browser and delight our users.
 |
-*/
-
-$app = require_once __DIR__.'/bootstrap/app.php';
-
+ */
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 /*
 |--------------------------------------------------------------------------
 | Run The Application
@@ -78,14 +78,10 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 | the client's browser allowing them to enjoy the creative
 | and wonderful application we have prepared for them.
 |
-*/
-
+ */
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
-
 $response->send();
-
 $kernel->terminate($request, $response);
