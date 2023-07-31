@@ -90,7 +90,7 @@ echo "
 		<meta name='robots' content='noindex,nofollow'>
 		<title>".$_SERVER['HTTP_HOST']." - $_n</title>
 		<meta name='viewport' content='width=device-width, initial-scale=0.70'>
-		<link rel='stylesheet' href='//random-php.ftp.sh/style.css'>
+		<link rel='stylesheet' href='https://raw.githubusercontent.com/TatsumiOfficial/PemecahList/main/style.css'>
 		<script src='//cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.js'></script>
 		<script src='//cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
 		<script src='//code.jquery.com/jquery-3.3.1.slim.min.js'></script>
