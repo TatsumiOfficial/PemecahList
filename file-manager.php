@@ -4,8 +4,8 @@ ini_set('display_errors', 0);
 $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
 
 // AES Key and IV
-define('AES_KEY', 'mysecretkey12345'); // 16/24/32 bytes for AES-128/192/256
-define('AES_IV', '1234567890abcdef');  // Must be 16 bytes
+define('AES_KEY', 'j9Lm#vZp4c!Xr0DdTbM7WfYuQ1HsEkGa'); // 32 bytes
+define('AES_IV', 'u8v#5bC1@rMq!eZw'); // 16 bytes
 
 function enc($plaintext) {
     $cipher = "AES-128-CBC";
