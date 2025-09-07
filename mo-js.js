@@ -371,10 +371,10 @@ function redirectToTelegram(planType) {
             message = '?text=Hi! I\'m interested in the Free plan for Tatsumi Crew - DNS Tools.';
             break;
         case 'pro':
-            message = '?text=Hi! I\'m interested in the Pro plan ($29/month) for Tatsumi Crew - DNS Tools. Can you help me get started with the 14-day free trial?';
+            message = '?text=Hi! I\'m interested in the Pro plan ($25/month) for Tatsumi Crew - DNS Tools. Can you help me get started with the 14-day free trial?';
             break;
         case 'enterprise':
-            message = '?text=Hi! I\'m interested in the Enterprise plan ($199/month) for Tatsumi Crew - DNS Tools. I\'d like to discuss custom solutions for my organization.';
+            message = '?text=Hi! I\'m interested in the Enterprise plan ($350/month) for Tatsumi Crew - DNS Tools. I\'d like to discuss custom solutions for my organization.';
             break;
         default:
             message = '?text=Hi! I\'m interested in Tatsumi Crew - DNS Tools pricing and features.';
