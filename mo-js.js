@@ -274,15 +274,41 @@ function exportResults() {
     }
     
     const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+    const maxFreeExport = 3000;
+    const isLimited = currentResults.length > maxFreeExport;
+    const exportData = isLimited ? currentResults.slice(0, maxFreeExport) : currentResults;
     
     const content = [
         `# Reverse IP Lookup Results - ${new Date().toLocaleString()}`,
-        `# Exported: ${currentResults.length.toLocaleString()} domains`,
+        `# Total Results: ${currentResults.length.toLocaleString()} domains`,
+        `# Exported: ${exportData.length.toLocaleString()} domains`,
         '',
-        ...currentResults.map((item, index) => {
+        ...exportData.map((item, index) => {
             const isotime = item.isotime || 'N/A';
             return `${index + 1}. ${item.domain} - ${item.ip} - ${isotime}`;
-        })
+        }),
+        '',
+        ...(isLimited ? [
+            '',
+            '═'.repeat(70),
+            '⚠️  FREE PLAN EXPORT LIMIT REACHED',
+            '═'.repeat(70),
+            '',
+            `You have exported ${exportData.length.toLocaleString()} out of ${currentResults.length.toLocaleString()} domains (${maxFreeExport.toLocaleString()} limit).`,
+            `Missing: ${(currentResults.length - maxFreeExport).toLocaleString()} domains`,
+            '',
+            '🚀 UPGRADE TO PREMIUM FOR FULL EXPORT',
+            '',
+            '✓ Export unlimited domains',
+            '✓ No restrictions on data',
+            '✓ Priority support',
+            '✓ Advanced features',
+            '',
+            'Contact us on Telegram: @xiera0069',
+            'Or visit our pricing page for more information',
+            '',
+            '═'.repeat(70)
+        ] : [])
     ].join('\n');
     
     const blob = new Blob([content], { type: 'text/plain' });
@@ -296,7 +322,11 @@ function exportResults() {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
     
-    showNotification(`File exported successfully with ${currentResults.length.toLocaleString()} domains!`, 'success');
+    if (isLimited) {
+        showNotification(`Exported ${exportData.length.toLocaleString()} domains (Free plan limit). Upgrade to Premium for full export!`, 'info');
+    } else {
+        showNotification(`File exported successfully with ${exportData.length.toLocaleString()} domains!`, 'success');
+    }
 }
 
 function showNotification(message, type = 'info') {
